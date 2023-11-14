@@ -1,0 +1,408 @@
+.content {
+  width: 100%;
+  height: auto;
+  padding: 90px 20px 50px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: var(--main-color);
+}
+
+.content__text {
+  font-size: 6rem;
+  color: var(--text-color);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.content__list {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content__list-child {
+  width: 32%;
+  height: 460px;
+  background-color: var(--white-color);
+  border-radius: 20px;
+  padding: 15px;
+  margin: 5px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.content__list-child nav {
+  position: relative;
+}
+
+.content__list-child-img {
+  width: 100%;
+  height: 250px;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-bottom: 30px;
+}
+
+.content__list-child-img-flash {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.content__list-child-img-tax {
+  position: absolute;
+  top: 5px;
+  left: 110px;
+}
+
+.content__list-child-img-flash-text {
+  color: var(--white-color);
+}
+
+.content__list-child-img-tax-text {
+  color: var(--white-color);
+}
+
+.content__list-child-auto {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+/* cái này để đặt vị trí thôi */
+/* .content__list-child-auto-car {
+} */
+.content__list-child-auto-car-text {
+  font-size: 1.1rem;
+}
+
+.content__list-child-name {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.content__list-child-name i {
+  margin-left: 10px;
+  font-size: 2rem;
+  color: var(--button-color);
+}
+
+.content__list-child-name-main {
+  font-size: 2rem;
+}
+
+.content__list-child-location {
+  display: flex;
+}
+
+.content__list-child-location i {
+  font-size: 1.5rem;
+}
+
+.content__list-child-location-text {
+  margin-left: 5px;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.content__list-child-underlined {
+  width: 80%;
+  height: 1px;
+  background-color: var(--text-color);
+  opacity: 0.5;
+  margin: 10px auto;
+}
+
+.content__list-child-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+.content__list-child-detail-evaluate {
+  display: flex;
+}
+
+.content__list-child-detail-evaluate-star {
+  display: flex;
+  margin-right: 10px;
+
+}
+
+.content__list-child-detail-evaluate-star i {
+  color: var(--star-color);
+  font-size: 1.2rem;
+}
+
+.content__list-child-detail-evaluate-star-text {
+  margin-left: 5px;
+}
+
+.content__list-child-detail-evaluate-usage {
+  display: flex;
+}
+
+.content__list-child-detail-evaluate-usage i {
+  color: var(--button-color);
+  font-size: 1.2rem;
+}
+
+.content__list-child-detail-evaluate-usage-text {
+  margin-left: 5px;
+}
+
+.content__list-child-detail-buy {
+  line-height: 18px;
+  font-size: 1.5rem;
+}
+
+.content__list-child-detail-buy-sale {
+  color: var(--button-color);
+  margin-left: 70px;
+}
+
+.content__list-child-detail-buy-day span {
+  opacity: 0.6;
+}
+
+/* .content__list-child-detail-buy-day {
+  
+} */
+
+/* Reponsive */
+
+/* Mobile 0-750px */
+@media (max-width: 46.875em) {
+  .content {
+    width: 100%;
+    height: auto;
+    padding: 60px 5px 50px;
+  }
+
+  .content__text {
+    font-size: 4rem;
+  }
+
+  .content__list-child-name-main {
+    font-size: 1.6rem;
+  }
+
+  .content__list-child {
+    width: 270px;
+    height: 460px;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    padding: 15px;
+    margin: 0 auto 10px;
+  }
+
+  .content__list-child-img {
+    width: 100%;
+    height: 250px;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-bottom: 30px;
+  }
+
+  .content__list-child-detail-buy {
+    line-height: 18px;
+    font-size: 1.3rem;
+  }
+
+  .content__list-child-detail-buy-sale {
+    margin-left: 60px;
+  }
+}
+
+/* Mobile 0-600px */
+@media (max-width: 37.5em) {
+  .content {
+    width: 100%;
+    height: auto;
+    padding: 50px 10px 50px;
+  }
+
+  .content__text {
+    font-size: 3.5rem;
+  }
+
+  .content__list {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    /* Ẩn thanh trượt trong Firefox */
+    -ms-overflow-style: none;
+    /* Ẩn thanh trượt trong Internet Explorer/Edge */
+  }
+
+  .content__list::-webkit-scrollbar {
+    width: 0;
+    /* Ẩn thanh trượt trong Chrome và Safari */
+  }
+
+  .content__list-child-name-main {
+    font-size: 1.4rem;
+  }
+
+  .content__list-child {
+    width: 350px;
+    height: 400px;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    padding: 15px;
+    margin-right: 20px;
+  }
+
+  .content__list-child-img {
+    width: 100%;
+    height: 220px;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+  }
+
+  .content__list-child-detail-buy {
+    line-height: 18px;
+    font-size: 1rem;
+  }
+
+  .content__list-child-detail-buy-sale {
+    margin-left: 100px;
+  }
+
+  .content__list-child-detail-buy-day {
+    margin-left: 55px;
+  }
+
+  .content__list-child-name-main {
+    font-size: 1.1rem;
+  }
+
+  .content__list-child-name i {
+    font-size: 1.4rem;
+  }
+
+  .content__list-child-location i {
+    font-size: 1.2rem;
+  }
+
+  .content__list-child-location-text {
+    font-size: 1.1rem;
+  }
+
+  .content__list-child-detail-evaluate-star-text {
+    font-size: 1rem;
+  }
+
+  .content__list-child-detail-evaluate-star i {
+    font-size: 1rem;
+  }
+
+  .content__list-child-detail-evaluate-usage i {
+    font-size: 1rem;
+  }
+
+  .content__list-child-detail-evaluate-usage-text {
+    font-size: 1rem;
+    margin-left: -5px;
+  }
+
+  .btn__freetax {
+    transform: scale(0.7);
+  }
+
+  .btn__electronic {
+    transform: scale(0.7);
+  }
+
+  .content__list-child-img-flash {
+    position: absolute;
+    top: 5px;
+    left: -8px;
+  }
+
+  .content__list-child-img-tax {
+    position: absolute;
+    top: 5px;
+    left: 70px;
+  }
+}
+
+/* Mobile 0-400px */
+@media (max-width: 25em) {
+  .content {
+    width: 100%;
+    height: auto;
+    padding: 50px 10px 50px;
+  }
+
+  .content__text {
+    font-size: 3rem;
+  }
+
+  .content__list {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    /* Ẩn thanh trượt trong Firefox */
+    -ms-overflow-style: none;
+    /* Ẩn thanh trượt trong Internet Explorer/Edge */
+  }
+
+  .content__list::-webkit-scrollbar {
+    width: 0;
+    /* Ẩn thanh trượt trong Chrome và Safari */
+  }
+}
+
+/* Tablet 751px - 990px */
+@media(min-width: 46.9375em) and (max-width: 61.875em) {
+  .content__text {
+    font-size: 5rem;
+  }
+
+  .content__list-child-name-main {
+    font-size: 1.8rem;
+  }
+
+  .content__list-child {
+    width: 48%;
+    height: 500px;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    padding: 15px;
+    margin: 5px;
+  }
+
+  .content__list-child-img {
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+/* PC > 991px */
+@media (min-width: 61.9375em) {
+  .content__list-child-name-main {
+    font-size: 2rem;
+  }
+}
+
+/* PC (991-1050) */
+@media (min-width: 61.9375em) and (max-width: 65.625em) {
+  .content__text {
+    font-size: 5.5rem;
+  }
+
+  .content__list-child-name-main {
+    font-size: 1.9rem;
+  }
+}

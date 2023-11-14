@@ -1,0 +1,176 @@
+.sale {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sale__text {
+    text-align: center;
+}
+
+.sale__text-main {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.sale__text-child {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.sale__slideshow {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    color: aliceblue;
+}
+
+/* slide show  */
+.sale__slideshow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.sale__slideshow-container-list {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.sale__slideshow-container-list-img {
+    width: 100%;
+    height:auto;
+    border-radius: 10px;
+    background-size: 100% 100%;
+}
+
+.sale__slideshow-container-list-slide {
+    position: absolute;
+    height: 40px;
+    width: 100px;
+    bottom: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--white-color);
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.5rem;
+    display: none;
+
+}
+
+.sale__slideshow-container-firt {
+    padding: 5px 1%;
+    cursor: pointer;
+    position: absolute;
+    border: none;
+    opacity: 0.2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px 0 0 10px;
+
+}
+
+.sale__slideshow-container-firt i {
+    font-size: 1.5rem;
+}
+
+.sale__slideshow-container-last i {
+    font-size: 1.5rem;
+}
+
+.sale__slideshow-container-last {
+    padding: 5px 1%;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    border-radius: 50%;
+    border: none;
+    opacity: 0.2;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 0 10px 10px 0;
+    background-color: var(--main-color);
+}
+
+.sale__slideshow-container-firt:hover,
+.sale__slideshow-container-last:hover {
+    background-color: azure;
+
+}
+
+/* CSS cho các ô tròn và container của số thứ tự slide */
+.sale__slide-number {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.sale__slide-number-circle {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-color);
+    /* Màu mặc định cho ô tròn */
+    border-radius: 50%;
+    margin: 0 5px;
+    /* Khoảng cách giữa các ô tròn */
+    cursor: pointer;
+    opacity: 0.2;
+}
+
+.sale__slide-number-circle.active {
+    background-color: var(--button-color);
+    opacity: 0.6;
+    /* Màu khi ô tròn đang được chọn */
+}
+
+/* Reponsive */
+/* Mobile 0-750px */
+@media (max-width: 46.875em) {
+    .sale__text-main {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    .sale__text-child {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+}
+
+/* Mobile cỡ nhỏ < 530px */
+@media (max-width: 33.125em) {
+    .sale {
+        margin-top: -50px;
+    }
+    .sale__text-main {
+        font-size: 2rem;
+        margin-bottom: 5px;
+    }
+
+    .sale__text-child {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+}
+
+/* Tablet 751px - 990px */
+@media(min-width: 46.9375em) and (max-width: 61.875em) {
+    .sale__text-main {
+        font-size: 4rem;
+        margin-bottom: 15px;
+    }
+
+    .sale__text-child {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+}
+
+/* PC */
+@media (min-width: 61.9375em) {}

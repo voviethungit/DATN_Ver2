@@ -1,0 +1,176 @@
+.protect {
+    background-color: var(--main-color);
+    width: 100%;
+    height: auto;
+    padding: 50px 10px 30px;
+}
+
+.protect__name {
+   text-align: center;
+   margin-bottom: 50px;;
+}
+
+.protect__name-text {
+    font-size: 4rem;
+}
+
+.protect__content {
+    display: flex;
+    width: 100%;
+    position: relative;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none; /* Ẩn thanh trượt trong Firefox */
+  -ms-overflow-style: none; /* Ẩn thanh trượt trong Internet Explorer/Edge */
+}
+.protect__content::-webkit-scrollbar {
+    width: 0; /* Ẩn thanh trượt trong Chrome và Safari */
+  }
+
+.protect__content-child {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.protect__content-child img{
+    width: 300px;
+    height: 150px;
+    border-radius: 10px;
+    transform: scale(0.9);
+}
+.protect__content-child img:hover {
+    cursor: pointer;
+}
+
+/* Reponsive */
+/* Mobile 0-750px */
+@media (max-width: 46.875em) {
+    .protect__name-text {
+        font-size: 3rem;
+    }
+    
+    .protect__content {
+        display: flex;
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none; /* Ẩn thanh trượt trong Firefox */
+      -ms-overflow-style: none; /* Ẩn thanh trượt trong Internet Explorer/Edge */
+    }
+    .protect__content::-webkit-scrollbar {
+        width: 0; /* Ẩn thanh trượt trong Chrome và Safari */
+      }
+    
+    .protect__content-child {
+        width: 60%;
+    }
+    
+    .protect__content-child img{
+        width: 300px;
+        height: 150px;
+        border-radius: 10px;
+        transform: scale(0.9);
+    }
+}
+/* Mobile 0-500px */
+@media (max-width: 31.25em) {
+    .protect {
+        margin-top: 10px;
+    }
+    .protect__name-text {
+        font-size: 2.5rem;
+    }
+    
+    .protect__content {
+        display: flex;
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none; /* Ẩn thanh trượt trong Firefox */
+      -ms-overflow-style: none; /* Ẩn thanh trượt trong Internet Explorer/Edge */
+    }
+    .protect__content::-webkit-scrollbar {
+        width: 0; /* Ẩn thanh trượt trong Chrome và Safari */
+      }
+    
+    .protect__content-child {
+        width: 60%;
+        margin: 0 5px;
+    }
+    
+    .protect__content-child img{
+        width: 300px;
+        height: 150px;
+        border-radius: 10px;
+        transform: scale(0.7);
+    }
+}
+
+/* Mobile 0-400px */
+@media (max-width: 25em) {
+    .protect {
+        margin-top: 10px;
+    }
+    .protect__name-text {
+        font-size: 2.2rem;
+    }
+    
+    .protect__content {
+        display: flex;
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none; /* Ẩn thanh trượt trong Firefox */
+      -ms-overflow-style: none; /* Ẩn thanh trượt trong Internet Explorer/Edge */
+    }
+    .protect__content::-webkit-scrollbar {
+        width: 0; /* Ẩn thanh trượt trong Chrome và Safari */
+      }
+    
+    .protect__content-child {
+        width: 60%;
+        margin-right: 50px;
+    }
+    
+    .protect__content-child img{
+        width: 300px;
+        height: 150px;
+        border-radius: 10px;
+        transform: scale(0.7);
+    }
+}
+
+/* Tablet 751px - 990px */
+@media(min-width: 46.9375em) and (max-width: 61.875em) {
+    .protect__name-text {
+        font-size: 3.5rem;
+    }
+    
+    .protect__content {
+        display: flex;
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none; /* Ẩn thanh trượt trong Firefox */
+      -ms-overflow-style: none; /* Ẩn thanh trượt trong Internet Explorer/Edge */
+    }
+    .protect__content::-webkit-scrollbar {
+        width: 0; /* Ẩn thanh trượt trong Chrome và Safari */
+      }
+    .protect__content-child {
+        width: 40%;
+        margin: 0 auto;
+    }
+    
+    .protect__content-child img{
+        width: 300px;
+        height: 150px;
+        border-radius: 10px;
+        transform: scale(0.9);
+    }
+}
+
+/* PC >=991 */
+@media (min-width: 61.9375em) {
+    
+}

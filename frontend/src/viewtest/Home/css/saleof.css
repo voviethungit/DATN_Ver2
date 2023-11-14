@@ -1,0 +1,35 @@
+.saleof-container {
+    width: 100%;
+  }  
+  .saleof-content{
+    width: 100%;
+  }
+  .saleof-img{
+   width: 100%;
+   
+  }
+  .saleof-img .saleof__edit-img{
+    width: 100%;
+    border-radius: 20px;
+  
+  }
+  .saleof-img .saleof__edit-img {
+    height: 300px !important;
+  }
+  .saleof-prev-button {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: absolute;
+    top: 1;
+    left: 1;
+  }
+  .saleof-next-button{
+    position: absolute;
+    top: 30% !important;
+    width:60px !important;
+    height: 60px !important;
+    border-radius: 50%;
+   background-color: rgb(82, 80, 80);
+   right: -20px !important  ;  
+  }

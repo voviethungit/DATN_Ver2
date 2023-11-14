@@ -1,0 +1,548 @@
+.blog {
+    width: 94%;
+    padding-top: 30px;
+    margin:0 auto 80px;
+}
+
+.blog__name {
+    text-align: center;
+}
+
+.blog__name-main {
+    font-size: 4rem;
+    margin-bottom: 80px;
+}
+
+.blog__content {
+    display: flex;
+}
+
+/* Cái này là tập hợp 2 ảnh nhỏ */
+.blog__content-firt {
+    width: 32%;
+    margin-right: 10px;
+}
+
+/* cái này là ảnh nhỏ ở trên */
+ .blog__content-firt-firt {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+.blog__content-firt-firt-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.blog__content-firt-firt-text {
+    position: absolute;
+    top: 135px;
+    left: 20px;
+    right: 20px;
+    color: var(--white-color);
+    line-height: 30px;
+    text-decoration: none;
+}
+
+.blog__content-firt-firt-text-text {
+    font-size: 1.5rem;
+}
+
+.blog__content-firt-firt-text-main {
+    font-size: 1.6rem;
+}
+
+/* cái này là ảnh nhỏ ở dưới */
+.blog__content-firt-last {
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+.blog__content-firt-last-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.blog__content-firt-last-text {
+    position: absolute;
+    top: 135px;
+    left: 20px;
+    right: 20px;
+    color: var(--white-color);
+    line-height: 30px;
+    text-decoration: none;
+}
+
+.blog__content-firt-last-text-text {
+    font-size: 1.5rem;
+}
+
+.blog__content-firt-last-text-main {
+    font-size: 1.6rem;
+}
+/* Ảnh chỉ xuất hiện khi có thanh vuốt ngang */
+.blog__content-firt-slide {
+    display: none;
+}
+/* Còn cái này là ảnh lớn nhất  */
+
+.blog__content-last {
+    margin-bottom: 20px;
+    width: 68%;
+    height: 510px;
+    position: relative;
+}
+
+.blog__content-last-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.blog__content-last-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    color: var(--white-color);
+    line-height: 30px;
+    text-decoration: none;
+}
+
+.blog__content-last-text-text {
+    font-size: 1.8rem;
+}
+
+.blog__content-last-text-main {
+    font-size: 2.5rem;
+}
+
+/* Reponsive */
+/* Mobile 0-750px */
+@media (max-width: 46.875em) {
+    .blog {
+        width: 96%;
+        padding-top: 20px;
+        margin:0 auto 70px;
+    }
+    
+    .blog__name-main {
+        font-size: 3rem;
+        margin-bottom: 60px;
+    }
+    
+    .blog__content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        /* Ẩn thanh trượt trong Firefox */
+        -ms-overflow-style: none;
+        /* Ẩn thanh trượt trong Internet Explorer/Edge */
+      }
+    
+      .blog__content::-webkit-scrollbar {
+        width: 0;
+        /* Ẩn thanh trượt trong Chrome và Safari */
+      }
+    
+    /* Cái này là tập hợp 2 ảnh nhỏ */
+    .blog__content-firt {
+        width:2000px;
+        margin: 0 10px;
+        display: flex;
+    }
+    
+    /* cái này là ảnh nhỏ ở trên */
+    .blog__content-firt-firt {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        margin-right: 20px;
+    }
+    
+    .blog__content-firt-firt-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    .blog__content-firt-firt-text {
+        position: absolute;
+        top: 220px;
+        left: 20px;
+        right: 20px;
+        color: var(--white-color);
+        line-height: 20px;
+    }
+    
+    .blog__content-firt-firt-text-text {
+        font-size: 1.2rem;
+    }
+    
+    .blog__content-firt-firt-text-main {
+        font-size: 1.3rem;
+    }
+    
+    /* cái này là ảnh nhỏ ở dưới */
+    .blog__content-firt-last {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        margin-right: 10px;
+    }
+    
+    .blog__content-firt-last-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    .blog__content-firt-last-text {
+        position: absolute;
+        top: 220px;
+        left: 20px;
+        right: 20px;
+        color: var(--white-color);
+        line-height: 20px;
+    }
+    
+    .blog__content-firt-last-text-text {
+        font-size: 1.2rem;
+    }
+    
+    .blog__content-firt-last-text-main {
+        font-size: 1.3rem;
+    }
+    
+    /* cái này ảnh slide bỏ thuộc tính none */
+    .blog__content-firt-slide {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        display: block;
+        margin-right: 10px;
+    }
+    
+    .blog__content-firt-slide-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    .blog__content-firt-slide-text {
+        position: absolute;
+        top: 220px;
+        left: 20px;
+        right: 20px;
+        color: var(--white-color);
+        line-height: 20px;
+    }
+    
+    .blog__content-firt-slide-text-text {
+        font-size: 1.2rem;
+    }
+    
+    .blog__content-firt-slide-text-main {
+        font-size: 1.3rem;
+    }
+
+    /* Còn cái này là ảnh lớn nhất cho ẩn đi thay ảnh slide khác vào  */
+    
+    .blog__content-last {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        margin-left: -30px;
+        display: none;
+    }
+    
+    .blog__content-last-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    .blog__content-last-text {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        color: var(--white-color);
+        line-height: 30px;
+    }
+    
+    .blog__content-last-text-text {
+        font-size: 1.2rem;
+    }
+    
+    .blog__content-last-text-main {
+        font-size: 1.3rem;
+    }
+}
+
+/* 0 - 400px */
+@media (max-width: 25em) {
+    .blog {
+        width: 96%;
+        padding-top: 20px;
+        margin:0 auto 70px;
+    }
+    
+    .blog__name-main {
+        font-size: 3rem;
+        margin-bottom: 60px;
+    }
+    
+    .blog__content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: scroll; 
+        scrollbar-width: none;
+        /* Ẩn thanh trượt trong Firefox */
+        -ms-overflow-style: none;
+        /* Ẩn thanh trượt trong Internet Explorer/Edge */
+      }
+    
+      .blog__content::-webkit-scrollbar {
+        width: 0;
+        /* Ẩn thanh trượt trong Chrome và Safari */
+      }
+    
+    /* Cái này là tập hợp 2 ảnh nhỏ */
+    .blog__content-firt {
+        width:1500px;
+        margin: 0 10px;
+        display: flex;
+    }
+    
+    /* cái này là ảnh nhỏ ở trên */
+    .blog__content-firt-firt {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        margin-right: 20px;
+    }
+    
+    .blog__content-firt-firt-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    .blog__content-firt-firt-text {
+        position: absolute;
+        top: 180px;
+        left: 20px;
+        right: 20px;
+        color: var(--white-color);
+        line-height: 20px;
+    }
+    
+    .blog__content-firt-firt-text-text {
+        font-size: 1rem;
+    }
+    
+    .blog__content-firt-firt-text-main {
+        font-size: 1.1rem;
+    }
+    
+    /* cái này là ảnh nhỏ ở dưới */
+    .blog__content-firt-last {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        margin-right: 10px;
+    }
+    
+    .blog__content-firt-last-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    .blog__content-firt-last-text {
+        position: absolute;
+        top: 180px;
+        left: 20px;
+        right: 20px;
+        color: var(--white-color);
+        line-height: 20px;
+    }
+    
+    .blog__content-firt-last-text-text {
+        font-size: 1rem;
+    }
+    
+    .blog__content-firt-last-text-main {
+        font-size: 1.1rem;
+    }
+    
+    /* cái này ảnh slide bỏ thuộc tính none */
+    .blog__content-firt-slide {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        display: block;
+        margin-right: 10px;
+    }
+    
+    .blog__content-firt-slide-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    .blog__content-firt-slide-text {
+        position: absolute;
+        top: 180px;
+        left: 20px;
+        right: 20px;
+        color: var(--white-color);
+        line-height: 20px;
+    }
+    
+    .blog__content-firt-slide-text-text {
+        font-size: 1rem;
+    }
+    
+    .blog__content-firt-slide-text-main {
+        font-size: 1.1rem;
+    }
+
+    /* Còn cái này là ảnh lớn nhất cho ẩn đi thay ảnh slide khác vào  */
+    
+    .blog__content-last {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        margin-left: -30px;
+        display: none;
+    }
+    
+    .blog__content-last-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    .blog__content-last-text {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        color: var(--white-color);
+        line-height: 30px;
+    }
+    
+    .blog__content-last-text-text {
+        font-size: 1.2rem;
+    }
+    
+    .blog__content-last-text-main {
+        font-size: 1.3rem;
+    }
+}
+
+/* Tablet 751px - 990px */
+@media(min-width: 46.9375em) and (max-width: 61.875em) {
+    .blog {
+        width: 95%;
+        margin:0 auto 70px;
+    }
+    
+    .blog__name-main {
+        font-size: 3.8rem;
+        margin-bottom: 70px;
+    }
+    /* Cái này là tập hợp 2 ảnh nhỏ */
+    .blog__content-firt {
+        width: 32%;
+        margin-left: 20px;
+        margin-right: 10px;
+        transform: scale(0.9);
+    }
+    
+    /* cái này là ảnh nhỏ ở trên */
+    .blog__content-firt-firt-text {
+        position: absolute;
+        top: 130px;
+        left: 20px;
+        right: 20px;
+        color: var(--white-color);
+        line-height: 30px;
+    }
+    
+    .blog__content-firt-firt-text-text {
+        font-size: 1.3rem;
+    }
+    
+    .blog__content-firt-firt-text-main {
+        font-size: 1.4rem;
+    }
+    
+    /* cái này là ảnh nhỏ ở dưới */
+    
+    .blog__content-firt-last-text {
+        position: absolute;
+        top: 130px;
+        left: 20px;
+        right: 20px;
+        color: var(--white-color);
+        line-height: 30px;
+    }
+    
+    .blog__content-firt-last-text-text {
+        font-size: 1.3rem;
+    }
+    
+    .blog__content-firt-last-text-main {
+        font-size: 1.4rem;
+    }
+    
+    /* Còn cái này là ảnh lớn nhất  */
+    
+    .blog__content-last {
+        margin-bottom: 20px;
+        margin-left: -20px;
+        width: 65%;
+        height: 510px;
+        position: relative;
+        transform: scale(0.9);
+    }
+    
+    .blog__content-last-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    .blog__content-last-text {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        color: var(--white-color);
+        line-height: 30px;
+    }
+    
+    .blog__content-last-text-text {
+        font-size: 1.8rem;
+    }
+    
+    .blog__content-last-text-main {
+        font-size: 2.5rem;
+    }
+}
+
+/* PC >=991 */
+@media (min-width: 61.9375em) {
+    
+}
