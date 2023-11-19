@@ -66,6 +66,7 @@
 float: right;
 color: #07ae1b;
 font-size: 1.4rem;
+cursor: pointer;
 }
 
 .wrap-btn-login{

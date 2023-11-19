@@ -6,17 +6,20 @@ const UserSchema = new Schema({
     type: String,
     minlength: 6,
     maxLength: 20,
+    required: true
   },
   phoneNumber: {
     type: Number,
-    minlength: 10,
+    minlength: 11,
     unique: true,
+    required: true
   },
   email: {
     type: String,
     minlength: 5,
     maxLength: 40,
     unique: true,
+    required: true
   },
   password: {
     type: String,
@@ -26,13 +29,12 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  imagePath: {
+    type: String,
+  },
   isAdmin: {
     type: Boolean,
     default: "false"
-  },
-  imagePath: {
-    type: String,
-    default: "https://wallpapercave.com/dwp1x/wp2301561.jpg"
   },
   location: {
     type:String,

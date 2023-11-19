@@ -253,6 +253,8 @@
 .form-item label {
     font-size: 1.4rem;
     font-weight: 600;
+    position: relative;
+    margin-left: -5px;
 }
 
 .wrap-date-time {
@@ -301,6 +303,8 @@
 
 .dropdown-form label {
     font-size: 1.4rem;
+   position: relative;
+   margin-left: -5px;
 }
 
 .wrap-form {
@@ -352,7 +356,9 @@
 .df-align-center-icon:hover+.df-align-center-tooltip-text {
     display: block;
 }
-
+/* .df-align-center-tooltip-text:hover {
+    display: block;
+} */
 .df-align-center-tooltip-text {
     position: absolute;
     display: none;
@@ -366,7 +372,7 @@
     border-radius: 8px;
     background-color: #fff;
     text-align: center;
-    z-index: 5;
+    z-index:5;
     bottom: 150%;
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -775,6 +781,238 @@
     font-size: 2.2rem;
     margin-bottom: 10px;
 }
+/* Xe tương tự */
+/* Tùy chỉnh nút trái */
+/* .slick-prev {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 5;
+  margin-left: -7px;
+  background-color: var(--main-color)!important;
+  color: var(--text-color) !important;
+} */
+
+/* Tùy chỉnh nút phải */
+/* .slick-next {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 5;
+  margin-left: -7px;
+  background-color: var(--main-color)!important;
+  color: var(--text-color) !important;
+} */
+/* Tùy chỉnh nút con phía dưới */
+.slick-dots {
+    position: absolute;
+    bottom: -40px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+  }
+  .slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 8px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '•';
+    text-align: center;
+    opacity: .25;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .contentproduct__other {
+    width: 100%;
+    height: auto;
+    padding: 90px 20px 50px;
+    margin: 10px auto;
+    /* text-align: center; */
+    background-color: var(--main-color);
+     display: block;
+  }
+  
+  .slick-slide > div {
+    margin: 0 10px;
+  }
+  .slick-list {
+    margin: 0 -10px;
+  }
+  
+  .contentproduct__other-child {
+    /* đặt chiều rộng không có ý nghĩa lắm vì mình có thể điều chỉnh slider */
+    /* width: 450px;  */
+    height: auto;
+    padding: 15px;
+    margin: 5px;
+    border:solid 0.1px #e3e3e3;
+    background: var(--white-color);
+    border-radius: 20px;
+    text-decoration: none;
+    overflow: hidden;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  .contentproduct__other-child-top {
+    position: relative;
+  }
+  .contentproduct__other-child-top img {
+    width: 100%;
+    height: 250px;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-bottom: 30px;
+    /* position: relative; */
+  }
+  .child__absolute {
+    display: flex;
+    width: 95%;
+    /* justify-content: space-between; */
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    flex-wrap: wrap;
+  }
+  .absolute__heart {
+    position: absolute;
+    top: 2%;
+    right: 4%;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background-color: rgba(135, 135, 135, 0.5)
+  }
+  .absolute__heart i{
+    font-size: 1.8rem;
+    color: var(--white-color);
+  }
+  .absolute__heart:hover{
+    background-color: rgba(135, 135, 135, 0.8);
+  }
+  .absolute__heart i:hover {
+    color: red;
+  }
+  .absolute__user {
+    position: absolute;
+    bottom: -5%;
+    left:  4%;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+  }
+  .absolute__user img {
+    width: 100%;
+    height: 100%;
+  }
+  .contentproduct__other-child-img-tax {
+    margin:0 5px 5px 0;
+  }
+  .contentproduct__other-child-img-tax-text,
+  .contentproduct__other-child-img-flash-text {
+    color: var(--white-color);
+    font-size: 1.2rem;
+  }
+  .contentproduct__other-child-auto {
+    width: 100%;
+  }
+  .contentproduct__other-child-auto-car {
+    margin: -10px 0 10px;
+  }
+  .contentproduct__other-child-auto-car-text {
+    font-size: 1.1rem;
+  }
+  .contentproduct__other-child-name {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .contentproduct__other-child-name i {
+    margin: 5px 0 0 10px;
+    font-size: 1.5rem;
+    color: var(--button-color);
+  }
+  
+  .contentproduct__other-child-name-main {
+    font-size: 1.5rem;
+  }
+  .contentproduct__other-child-location {
+  display: flex;
+  }
+  
+  .contentproduct__other-child-location i {
+  font-size: 1.5rem;
+  }
+  
+  .contentproduct__other-child-location-text {
+  margin-left: 5px;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  }
+  .contentproduct__other-child-underlined {
+    width: 80%;
+    height: 1px;
+    background-color: var(--text-color);
+    opacity: 0.5;
+    margin: 10px auto;
+  }
+  .contentproduct__other-child-detail {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+  }
+  .contentproduct__other-child-detail-evaluate {
+    display: flex;
+  }
+  .contentproduct__other-child-detail-evaluate-star {
+    display: flex;
+    margin-right: 10px;
+  
+  }
+  
+  .contentproduct__other-child-detail-evaluate-star i {
+    color: var(--star-color);
+    font-size: 1.2rem;
+  }
+  
+  .contentproduct__other-child-detail-evaluate-star-text {
+    margin-left: 5px;
+  }
+  
+  .contentproduct__other-child-detail-evaluate-usage {
+    display: flex;
+  }
+  
+  .contentproduct__other-child-detail-evaluate-usage i {
+    color: var(--button-color);
+    font-size: 1.2rem;
+  }
+  
+  .contentproduct__other-child-detail-evaluate-usage-text {
+    margin-left: 5px;
+  }
+  .contentproduct__other-child-detail-buy {
+   font-size: 1.5rem;
+  }
+  .contentproduct__other-child-detail-buy-sale {
+    color: var(--button-color);
+    /* margin-left: 70px; */ 
+  }
 
 /* Reponsive */
 /* Mobile 0-750px */
