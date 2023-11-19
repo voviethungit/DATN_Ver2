@@ -7,9 +7,21 @@ const multer = require("multer");
 const verifyToken = require("../middleware/auth");
 const checkAdmin = require("../middleware/checkAdmin");
 // API UPLOAD CAR
-router.post("/upload-car", verifyToken, checkAdmin, async (req, res) => {
-  const { title, description, price, location, numberCar, imagePath } = req.body;
-  if (!title || !description || !price || !location || !numberCar || !imagePath)
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "images/");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now();
+    cb(null, uniqueSuffix + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+router.post("/upload-car", upload.single("image"), verifyToken, async (req, res) => {
+  const { title, description, price, location, numberCar } = req.body;
+  const imagePath = req.file.filename;
+  if (!title || !description || !price || !location || !numberCar)
     return res
       .status(400)
       .json({ success: false, message: "Vui lòng nhập đầy đủ các thông tin !" });
@@ -21,7 +33,8 @@ router.post("/upload-car", verifyToken, checkAdmin, async (req, res) => {
       price,
       location,
       numberCar,
-      imagePath,
+      imagePath: req.file.filename,
+      userPost: req.userId,
     });
 
     await newCar.save();
@@ -33,14 +46,14 @@ router.post("/upload-car", verifyToken, checkAdmin, async (req, res) => {
   }
 });
 
-// API get all CAR
+// API get CAR
 router.get("/get-car", async (req, res) => {
   try {
     const cars = await Car.find({});
     res.json({ success: true, cars });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ success: false, message: "Lỗi Server ! Liên Hệ Admin" });
+    res.status(500).json({ success: false, message: "Internal server error" });
   }
 });
 
@@ -57,5 +70,4 @@ router.get("/get-car/:id", async (req, res) => {
     res.status(500).json({ success: false, message: "Lỗi Server! Liên Hệ Admin" });
   }
 });
-
 module.exports = router;

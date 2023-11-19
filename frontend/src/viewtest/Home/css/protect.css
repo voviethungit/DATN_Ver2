@@ -2,7 +2,7 @@
     background-color: var(--main-color);
     width: 100%;
     height: auto;
-    padding: 50px 10px 30px;
+    padding: 50px 0px;
 }
 
 .protect__name {
@@ -13,67 +13,54 @@
 .protect__name-text {
     font-size: 4rem;
 }
+ /* protect slider */
+ 
+.protect__mobile {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: none;
+  }
+  
+  .slick-slide > div {
+    margin: 0 10px;
+  }
+  .slick-list {
+    margin: 0 -10px;
+  }
+  
+  .protect__mobile-slider {
+    border: 1px solid #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    height: auto;
+    cursor: pointer;
+  }
+  .protect__mobile-slider img {
+    width: 100%;
+    height: 150px;
+    /* object-fit: cover; */
+  }
+
 
 .protect__content {
     display: flex;
+    justify-content: center;
     width: 100%;
-    position: relative;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    scrollbar-width: none; /* Ẩn thanh trượt trong Firefox */
-  -ms-overflow-style: none; /* Ẩn thanh trượt trong Internet Explorer/Edge */
+    flex-wrap: wrap;
 }
-.protect__content::-webkit-scrollbar {
-    width: 0; /* Ẩn thanh trượt trong Chrome và Safari */
-  }
-
-.protect__content-child {
-    width: 40%;
+.protect__content img {
+    width: 290px;
     margin: 0 auto;
-}
-
-.protect__content-child img{
-    width: 300px;
     height: 150px;
     border-radius: 10px;
     transform: scale(0.9);
 }
-.protect__content-child img:hover {
-    cursor: pointer;
-}
+
 
 /* Reponsive */
-/* Mobile 0-750px */
-@media (max-width: 46.875em) {
-    .protect__name-text {
-        font-size: 3rem;
-    }
-    
-    .protect__content {
-        display: flex;
-        width: 100%;
-        flex-wrap: nowrap;
-        overflow-x: scroll;
-        scrollbar-width: none; /* Ẩn thanh trượt trong Firefox */
-      -ms-overflow-style: none; /* Ẩn thanh trượt trong Internet Explorer/Edge */
-    }
-    .protect__content::-webkit-scrollbar {
-        width: 0; /* Ẩn thanh trượt trong Chrome và Safari */
-      }
-    
-    .protect__content-child {
-        width: 60%;
-    }
-    
-    .protect__content-child img{
-        width: 300px;
-        height: 150px;
-        border-radius: 10px;
-        transform: scale(0.9);
-    }
-}
-/* Mobile 0-500px */
-@media (max-width: 31.25em) {
+/* Mobile 0-600px */
+@media (max-width: 37.5em) {
     .protect {
         margin-top: 10px;
     }
@@ -82,27 +69,10 @@
     }
     
     .protect__content {
-        display: flex;
-        width: 100%;
-        flex-wrap: nowrap;
-        overflow-x: scroll;
-        scrollbar-width: none; /* Ẩn thanh trượt trong Firefox */
-      -ms-overflow-style: none; /* Ẩn thanh trượt trong Internet Explorer/Edge */
+        display: none;
     }
-    .protect__content::-webkit-scrollbar {
-        width: 0; /* Ẩn thanh trượt trong Chrome và Safari */
-      }
-    
-    .protect__content-child {
-        width: 60%;
-        margin: 0 5px;
-    }
-    
-    .protect__content-child img{
-        width: 300px;
-        height: 150px;
-        border-radius: 10px;
-        transform: scale(0.7);
+    .protect__mobile {
+        display: block;
     }
 }
 
@@ -116,32 +86,16 @@
     }
     
     .protect__content {
-        display: flex;
-        width: 100%;
-        flex-wrap: nowrap;
-        overflow-x: scroll;
-        scrollbar-width: none; /* Ẩn thanh trượt trong Firefox */
-      -ms-overflow-style: none; /* Ẩn thanh trượt trong Internet Explorer/Edge */
+        display: none
     }
-    .protect__content::-webkit-scrollbar {
-        width: 0; /* Ẩn thanh trượt trong Chrome và Safari */
-      }
-    
-    .protect__content-child {
-        width: 60%;
-        margin-right: 50px;
+    .protect__mobile {
+        display: block;
     }
-    
-    .protect__content-child img{
-        width: 300px;
-        height: 150px;
-        border-radius: 10px;
-        transform: scale(0.7);
-    }
+   
 }
 
-/* Tablet 751px - 990px */
-@media(min-width: 46.9375em) and (max-width: 61.875em) {
+/* Tablet 600px - 990px */
+@media(min-width: 37.5625em) and (max-width: 61.875em) {
     .protect__name-text {
         font-size: 3.5rem;
     }
@@ -149,14 +103,8 @@
     .protect__content {
         display: flex;
         width: 100%;
-        flex-wrap: nowrap;
-        overflow-x: scroll;
-        scrollbar-width: none; /* Ẩn thanh trượt trong Firefox */
-      -ms-overflow-style: none; /* Ẩn thanh trượt trong Internet Explorer/Edge */
+        flex-wrap: wrap;
     }
-    .protect__content::-webkit-scrollbar {
-        width: 0; /* Ẩn thanh trượt trong Chrome và Safari */
-      }
     .protect__content-child {
         width: 40%;
         margin: 0 auto;

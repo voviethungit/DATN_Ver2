@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 function Deleteaccount() {
 
     return (
-        <div >
+        <div  className="main-color">
         <Header/>
             <div className='deleteaccount-form'>
                 <div className='deleteaccount-content'> 
@@ -26,7 +26,7 @@ function Deleteaccount() {
                         <p>Yêu cầu xóa tài khoản sẽ được xử lý trong vòng 15 ngày làm việc. Mioto sẽ liên hệ trực tiếp với bạn thông qua Email hoặc Số điện thoại đã cung cấp.</p>
                         <p>Mọi thắc mắc xin liên hệ Fanpage của Mioto hoặc Hotline 1900 9217 (7AM - 10PM) để được hỗ trợ.</p>
                     </div>
-                    <div className='deleteaccount-btn'><Link className='userinfor-nav-link'>Xóa tài khoản</Link></div>
+                    <div className='deleteaccount-btn'><Link to='/MainUser' className='userinfor-nav-link'>Xóa tài khoản</Link></div>
                 </div>
             </div>
         <Footer/>

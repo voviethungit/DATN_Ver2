@@ -2,7 +2,7 @@ import React from 'react';
 import './css/mainuser.css';
 import UserInfor from './UserInfor';
 import Header from '../Home/Header';
-import Footer from '../Home/Footer';
+import Footer from '../Home/Footer'
 
 
 

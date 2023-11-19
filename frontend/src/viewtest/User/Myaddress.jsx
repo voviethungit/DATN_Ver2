@@ -9,18 +9,19 @@ import {
     FaMapLocationDot, FaGift, FaLocationDot, FaKey, FaArrowRightFromBracket, FaTrashCan
 } from "react-icons/fa6";
 import {Link} from 'react-router-dom';
+import Navbarmobile from './Navbarmobile';
 
-function Resetpw() {
+function Myaddress() {
 
     return (
-        <div >
+        <div  className="main-color">
         <Header/>
         <div className='userinfor'>
         <div className='userinfor__nav' id='userinfor__nav'>
         <h1 className='userinfor__nav-name'>Xin chào bạn!</h1>
         <ul className='userinfor__nav-list'>
 
-            <Link to="/MainUser" className='userinfor-nav-link'>
+            <Link to="/user" className='userinfor-nav-link'>
                 <li className='userinfor__nav-list-child'>
                     <i className='userinfor__nav-list-child-icon'>
                         <FaUser></FaUser>
@@ -66,7 +67,7 @@ function Resetpw() {
             </Link>
 
             <Link to="/Myaddress" className='userinfor-nav-link'>
-                <li className='userinfor__nav-list-child'>
+                <li className='userinfor__nav-list-child link-active'>
                     <i className='userinfor__nav-list-child-icon'>
                         <FaLocationDot></FaLocationDot>
                     </i>
@@ -83,7 +84,7 @@ function Resetpw() {
                 </li>                
             </Link>
         
-            <Link to='/UserInfor' className='userinfor-nav-link'>         
+            <Link to='/MainUser' className='userinfor-nav-link'>         
                 <li className='userinfor__nav-list-child'>
                     <i className='userinfor__nav-list-child-icon'>
                         <FaArrowRightFromBracket></FaArrowRightFromBracket>
@@ -101,32 +102,21 @@ function Resetpw() {
                 </li> 
             </Link>
         </ul>
-    </div>
+        </div> 
+
+                    {/* Drop menu mobile */}
+                    <Navbarmobile/>
     <div className='userbox'>
-        <div className='box-title'><h1>Đổi mật khẩu</h1>
-            <p>Vui lòng nhập mật khẩu hiện tại của bạn để thay đổi mật khẩu</p>
-        </div>
+    <div className='box-title'><h1>Địa chỉ của tôi</h1></div>
         <div className='content-box myaddress-form'>
             <div className='myfavs-cars-title'>
-                <h3>Nhập mật khẩu</h3>       
+                <h3>Địa chỉ đã lưu</h3>
+                <div className='myaddress-add'><Link to="/" className='userinfor-nav-link'>Thêm địa chỉ mới</Link></div>
             </div>
-            <div className='myfavs-cars-content'>
-                <div className='form-content'>
-                    <div className='content-title-input'><p>Mật khẩu hiện tại</p></div>
-                    <div className='content-form-input'><input type="text"></input></div>                
-                </div>
-                <div className='form-content'>
-                    <div className='content-title-input'><p>Mật khẩu mới</p></div>
-                    <div className='content-form-input'><input type="text"></input></div>                
-                </div>
-                <div className='form-content'>
-                    <div className='content-title-input'><p>Xác nhận mật khẩu mới</p></div>
-                    <div className='content-form-input'><input type="text"></input></div>                
-                </div>
-            </div> 
-            <div className='resetpw-btn'>
-                <div className='resetpw-btn-submit'><Link className='userinfor-nav-link'>Xác nhận</Link></div>
-            </div>
+            <div className='myfavs-cars'>
+                <img src="https://www.mioto.vn/static/media/empty-address.6de0bd2f.svg" alt=''></img>
+                <p>Chưa có địa chỉ</p>
+            </div>        
         </div>
     </div>
     </div>
@@ -135,4 +125,4 @@ function Resetpw() {
     )
 }
 
-export default Resetpw;
+export default Myaddress;
