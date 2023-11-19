@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import './css/contentproduct.css';
 import './css/base.css';
 import { FaImage, FaHeart, FaShareNodes, FaStar, FaFax, FaShield, FaQuestion, FaCalendarMinus, FaCircleCheck, FaCircleExclamation, FaFlag, FaChair, FaMendeley, FaChargingStation, FaBluetoothB, FaCamera, FaCameraRetro, FaBullseye, FaCarBurst, FaLocationCrosshairs, FaUsb, FaGlassWater, FaHandDots, FaIdCard, FaIdCardClip } from "react-icons/fa6";
 
 
 function ContentProduct() {
+    const { id } = useParams();
+    const [car, setCar] = useState(null);
+    useEffect(() => {
+        axios.get(`http://localhost:5000/get-car/${id}`)
+          .then((response) => {
+            setCar(response.data.car);
+          })
+          .catch((error) => {
+            console.error('Lỗi:', error);
+          });
+      }, [id]);
+    
+      if (!car) {
+        return <div>Loading...</div>; // Hiển thị khi đang tải dữ liệu
+      }
+    
     return (
         <div className='contentproduct'>
             <div className="contentproduct__img">
                 <div className='contentproduct__img-main'>
-                    <img src='https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/bmw_320i__2013/p/g/2023/02/24/16/4bBclsR0qNgp3ZoQRbmUBg.jpg'></img>
+                    <img src={car.imagePath} alt={car.title}></img>
                 </div>
                 <div className="contentproduct__img-list">
                     <img src="https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/bmw_320i__2013/p/g/2023/02/24/16/FNoU4l7040O_BAPVzBAPEw.jpg" alt="" className="contentproduct__img-list-child" />
@@ -25,7 +43,7 @@ function ContentProduct() {
                 <div className='contentproduct__detail-container'>
                     <div className='contentproduct__detail-container-name'>
                         <div className='group-name'>
-                            <h3>BMW 320i 2013</h3>
+                            <h3>{car.title}</h3>
                             <div className='group-icon'>
                                 <i><FaShareNodes></FaShareNodes></i>
                                 <i><FaHeart></FaHeart></i>
@@ -34,14 +52,11 @@ function ContentProduct() {
                         <div className="group-total">
                             <div className='group-total-star'>
                                 <i><FaStar></FaStar></i>
-                                <span>5.0</span>
+                                <span>{car.rate}</span>
                             </div>
                             <div className='group-total-trip'>
                                 <i><FaFax></FaFax></i>
-                                <span>41 chuyến</span>
-                            </div>
-                            <div className='group-total-location'>
-                                <span>Hòa Minh - Thanh Khê</span>
+                                <span>{car.location}</span>
                             </div>
                         </div>
                         <div className='group-tag'>
@@ -62,7 +77,7 @@ function ContentProduct() {
                     </div>
                     <div className='contentproduct__detail-sidebar-cardetail'>
                         <div className='price'>
-                            <h4>999k/ngày</h4>
+                            <h4>{car.price}/ngày</h4>
                         </div>
                         <div className='date-time-form'>
                             <div className='form-item'>
@@ -96,7 +111,7 @@ function ContentProduct() {
                         <div className='dropdown-form'>
                             <label>Địa điểm giao nhận xe</label>
                             <div className='wrap-form'>
-                                <span className='value'>Hòa Minh - Liên Chiểu</span>
+                                <span className='value'>{car.location}</span>
                             </div>
                         </div>
                         <div className='line-page'>
@@ -114,7 +129,7 @@ function ContentProduct() {
                                     </span>
                                 </p>
                                 <p className='cost'>
-                                    <span>999 000đ/ ngày</span>
+                                    <span>{car.price}/ ngày</span>
                                 </p>
                             </div>
                             <div className='price-item'>
@@ -238,7 +253,7 @@ function ContentProduct() {
                                     <div className='title'>
                                         <p className='sub'>Số ghế</p>
                                         <p className='main'>
-                                            5 chỗ
+                                           {car.chair} chỗ
                                         </p>
                                     </div>
                                 </div>
@@ -265,7 +280,7 @@ function ContentProduct() {
                         <div className='line-page'></div>
                         <div className='contentproduct__detail-container-content-describe'>
                             <h6>Mô Tả</h6>
-                            <p>Bmw màu hồng porsche xinh đẹp</p>
+                            <p>{car.description}</p>
                         </div>
                         <div className='line-page'></div>
                         <div className='contentproduct__detail-container-content-convenient'>
@@ -324,7 +339,7 @@ function ContentProduct() {
                            <img className='list-reviews-item-img' src='https://n1-astg.mioto.vn/g/2023/09/18/09/n-Gwbx0s1s0QsObsceevXQ.jpg'>
                            </img>
                            <div className='list-reviews-item-name'>
-                                <h6>Lại Văn Sỹ</h6>
+                                <h6>Võ Việt Hùng</h6>
                                 <div className='list-reviews-item-name-star'>
                                 <i><FaStar></FaStar></i> 
                                 <i><FaStar></FaStar></i> 
@@ -336,25 +351,6 @@ function ContentProduct() {
                            </div>
                             <p>23/10</p>
                            </div>
-                           <div className='list-reviews-item'>
-                           <img className='list-reviews-item-img' src='https://n1-astg.mioto.vn/g/2023/09/18/09/n-Gwbx0s1s0QsObsceevXQ.jpg'>
-                           </img>
-                           <div className='list-reviews-item-name'>
-                                <h6>Lại Văn Sỹ</h6>
-                                <div className='list-reviews-item-name-star'>
-                                <i><FaStar></FaStar></i> 
-                                <i><FaStar></FaStar></i> 
-                                <i><FaStar></FaStar></i> 
-                                <i><FaStar></FaStar></i> 
-                                <i><FaStar></FaStar></i> 
-                                </div>
-
-                           </div>
-                            <p>23/10</p>
-                           </div>
-                           {/* <div className='list-reviews-see-more'>
-                             <span>Xem thêm</span>
-                           </div> */}
                         </div>
                         </div>
                     </div>
@@ -369,7 +365,7 @@ function ContentProduct() {
                     </div>
                     <div className='contentproduct__detail-sidebar-cardetail'>
                         <div className='price'>
-                            <h4>999k/ngày</h4>
+                            <h4>{car.price}/ngày</h4>
                         </div>
                         <div className='date-time-form'>
                             <div className='form-item'>
@@ -401,9 +397,9 @@ function ContentProduct() {
                             </div>
                         </div>
                         <div className='dropdown-form'>
-                            <label>Địa điểm giao nhận xe</label>
+                            <label></label>
                             <div className='wrap-form'>
-                                <span className='value'>Hòa Minh - Liên Chiểu</span>
+                                <span className='value'>{car.location}</span>
                             </div>
                         </div>
                         <div className='line-page'>
@@ -421,7 +417,7 @@ function ContentProduct() {
                                     </span>
                                 </p>
                                 <p className='cost'>
-                                    <span>999 000đ/ ngày</span>
+                                    <span>{car.price}/ ngày</span>
                                 </p>
                             </div>
                             <div className='price-item'>
@@ -544,4 +540,4 @@ function ContentProduct() {
     )
 }
 
-export default ContentProduct
+export default ContentProduct;

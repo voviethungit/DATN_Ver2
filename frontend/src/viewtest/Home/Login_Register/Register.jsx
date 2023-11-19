@@ -3,7 +3,6 @@ import "./css/register.css";
 import "./css/base.css";
 import axios from "axios";
 import {  FaFacebook, FaGoogle } from "react-icons/fa6";
-import img from '../../img/avatardefault.png'; 
 function Register() {
   const [fullName, setFullname] = useState('');
   const [email, setEmail] = useState('');
@@ -43,7 +42,6 @@ function Register() {
     e.preventDefault();
 
     const formDataToSend = new FormData();
-    formDataToSend.append('image', image);
     formDataToSend.append('fullName', fullName);
     formDataToSend.append('phoneNumber', phoneNumber);
     formDataToSend.append('email', email);
@@ -73,15 +71,6 @@ function Register() {
   };
 
 
-  const handleCloseButtonClick = () => {
-    const modal = document.querySelector(".modal");
-    modal.style.display = "none";
-  };
-  const [file, setFile] = useState();
-  const defaultImage = img // ảnh mặc định
-  function getFile(event) {
-    setFile(URL.createObjectURL(event.target.files[0]))
-  }
   return (
     <form className="register-form" onSubmit={handleSubmit}>
     <div className="hehehe">
@@ -90,13 +79,6 @@ function Register() {
         <div className="modal-content">
        
           <div className="modal-header">
-            <button
-              type="button"
-              className="close"
-              onClick={handleCloseButtonClick}
-            >
-              <span aria-hidden="true">x</span>
-            </button>
             
             <h2>Đăng ký</h2>
           </div>
@@ -104,33 +86,6 @@ function Register() {
           <div className="modal-body">
             <div className="modal-input-body">
               <div className="modal-input-body">
-              <div className="line-form">
-                <div className="custom-input">
-                    <div className="wrap-info">
-                      <div className="title-status">
-                        <p>Ảnh đại diện</p>
-                        <div className="desc">
-
-                        </div>
-                      </div>
-                    </div>
-                    <div className="custom-input-list">
-                    <div className="wrap-input">
-                      <div className="wrap-text">
-                        <input
-                          type="file"
-                          name="image"
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </div>
-                    <div className="wrap-images">
-                        <img src={file ? file : defaultImage} alt="" />
-                    
-                    </div>
-                  </div>
-                </div>
-                </div>
                 <div className="line-form">
                   <div className="custom-input">
                     <div className="wrap-info">

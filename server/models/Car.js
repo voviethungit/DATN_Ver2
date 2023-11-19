@@ -16,15 +16,9 @@ const CarsSchema = new Schema({
   },
   imagePath: {
     type: String,
-    default: ""
-  },
-  userPost: {
-    type: Schema.Types.ObjectId,
-    ref: "users",
   },
   location: {
     type: String,
-    default: "Da Nang"
   },
   price: {
     type: Number

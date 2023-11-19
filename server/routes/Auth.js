@@ -7,13 +7,6 @@ const argon2 = require("argon2");
 const multer = require("multer");
 const verifyToken = require("../middleware/auth");
 const jwt = require("jsonwebtoken");
-const cloudinary = require('cloudinary').v2;
-          
-cloudinary.config({ 
-  cloud_name: process.env.CLOUD_NAME, 
-  api_key: process.env.API_KEY, 
-  api_secret: process.env.API_SECRET
-});
 // verify-middleware
 router.get("/", verifyToken, async (req, res) => {
   try {
@@ -30,8 +23,19 @@ router.get("/", verifyToken, async (req, res) => {
 });
 
 // ROUTER POST REGISTER
-router.post("/register", async (req, res) => {
-  const { fullName, password, email, location, phoneNumber} = req.body;
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now();
+    cb(null, uniqueSuffix + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+router.post("/register", upload.single("image"),  async (req, res) => {
+  const { fullName, password, email, location, phoneNumber, imagePath} = req.body;
 
   if (!fullName || !password || !email || !phoneNumber || !location)
     return res.status(400).json({
@@ -40,8 +44,6 @@ router.post("/register", async (req, res) => {
     });
 
   try {
-    const result = await cloudinary.uploader.upload(req.file.path);
-    const imagePath = result.secure_url;
     const user = await User.findOne({ email });
 
     if (user)
@@ -102,7 +104,7 @@ router.post("/login", async (req, res) => {
         .status(400)
         .json({ success: false, message: "Sai tài khoản hoặc mật khẩu" });
 
-    const expiresIn = "30m";
+    const expiresIn = "30d";
 
     // khai bao jsonwebtoken
     const accessToken = jwt.sign(

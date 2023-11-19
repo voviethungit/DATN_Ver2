@@ -13,7 +13,13 @@ function UserInfor() {
   const [imagePath, setImagePath] = useState(null);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
-  const [role, setRole] = useState('');
+  const [vip, setVip] = useState('');
+
+
+  const handleLogout = () => {
+    localStorage.removeItem('accessToken');
+    window.location.href="http://localhost:3000/"
+  };
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
     if (accessToken) {
@@ -28,7 +34,7 @@ function UserInfor() {
           setFullName(response.data.user.fullName);
           setPhoneNumber(response.data.user.phoneNumber);
           setEmail(response.data.user.email);
-          setRole(response.data.user.role);
+          setVip(response.data.user.vip);
         })
         .catch((error) => {
           console.error('Lỗi :', error);
@@ -84,7 +90,7 @@ function UserInfor() {
                         </i>
                         <p className='userinfor__nav-list-child-text'>Đổi mật khẩu</p>
                     </li>
-                    <li className='userinfor__nav-list-child'>
+                    <li className='userinfor__nav-list-child' onClick={handleLogout}>
                         <i className='userinfor__nav-list-child-icon'>
                             <FaArrowRightFromBracket></FaArrowRightFromBracket>
                         </i>
@@ -114,12 +120,12 @@ function UserInfor() {
                     <div className='userinfor__profile-account'>
                         <div className='userinfor__profile-account'>
                             <h3 className='userinfor__profile-account-projectname'>Thông tin tài khoản</h3>
-                            <img className='userinfor__profile-account-img' src="https://n1-astg.mioto.vn/g/2023/08/19/18/BMEMGCxlBOgS_cMq-XfAnQ.jpg"></img>
+                            <img className='userinfor__profile-account-img' src={imagePath} />
                             <h3 className='userinfor__profile-account-name'>{fullName}</h3>
                             <p className='userinfor__profile-account-text'>Tham gia: 19/09/2023</p>
                             <div className='userinfor__profile-account-bonus'>
                                 <i className='userinfor__profile-account-bonus-icon'> <FaMedal></FaMedal></i>
-                                <h5 className='userinfor__profile-account-bonus-name'>{role}</h5>
+                                <h5 className='userinfor__profile-account-bonus-name'> {vip}</h5>
                             </div>
                         </div>
                     </div>
@@ -157,7 +163,7 @@ function UserInfor() {
                             </div>
                             <div className='userinfor__profile-detail-list-number'>
                                 <h3 className='userinfor__profile-detail-list-number-name'>Google </h3>
-                                <h2 className='userinfor__profile-detail-list-number-text'>Nguyen Van Nguyen(FPLDN_17)<i><FaLink></FaLink></i></h2>
+                                <h2 className='userinfor__profile-detail-list-number-text'>Thêm liên kết<i><FaLink></FaLink></i></h2>
                             </div>
                         </div>
                     </div>
