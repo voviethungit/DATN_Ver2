@@ -57,4 +57,17 @@ router.get("/get-car", async (req, res) => {
   }
 });
 
+// API GET ID CAR
+router.get("/get-car/:id", async (req, res) => {
+  try {
+    const car = await Car.findById(req.params.id);
+    if (!car) {
+      return res.status(404).json({ success: false, message: "Không tìm thấy xe" });
+    }
+    res.json({ success: true, car });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Lỗi Server! Liên Hệ Admin" });
+  }
+});
 module.exports = router;

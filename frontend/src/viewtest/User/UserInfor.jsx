@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./css/userinfor.css";
 import "./css/base.css";
 import "./css/reponsive.css";
@@ -21,12 +21,48 @@ import {
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Navbarmobile from "./Navbarmobile";
+import axios from "axios";
+// import images from './img/erenyeager.jpg'; 
 
 function UserInfor() {
+  
+  const [fullName, setFullName] = useState('');
+  const [imagePath, setImagePath] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [vip, setVip] = useState('');
+
+
+  const handleLogout = () => {
+    localStorage.removeItem('accessToken');
+    window.location.href="http://localhost:3000/"
+  };
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      
+      axios.get('http://localhost:5000/getProfile', {
+        headers: {
+          Authorization: `Bearer ${accessToken}`, 
+        },
+      })
+        .then((response) => {
+          setImagePath(response.data.user.imagePath);
+          setFullName(response.data.user.fullName);
+          setPhoneNumber(response.data.user.phoneNumber);
+          setEmail(response.data.user.email);
+          setVip(response.data.user.vip);
+        })
+        .catch((error) => {
+          console.error('Lỗi :', error);
+          
+        });
+    }
+  }, []);
   return (
     <div className="userinfor">
       <div className="userinfor__nav" id="userinfor__nav">
-        <h1 className="userinfor__nav-name">Xin chào bạn!</h1>
+        <h1 className="userinfor__nav-name">Xin chào {fullName}!</h1>
         <ul className="userinfor__nav-list">
           <Link to="/user" className="userinfor-nav-link">
             <li className="userinfor__nav-list-child link-active">
@@ -102,7 +138,7 @@ function UserInfor() {
               <i className="userinfor__nav-list-child-icon">
                 <FaArrowRightFromBracket></FaArrowRightFromBracket>
               </i>
-              <p className="userinfor__nav-list-child-text">Đăng xuất</p>
+              <p className="userinfor__nav-list-child-text" onClick={handleLogout}>Đăng xuất</p>
             </li>
           </Link>
 
@@ -148,11 +184,11 @@ function UserInfor() {
               <div className="userinfor__profile-account">
                 <img
                   className="userinfor__profile-account-img"
-                  src="https://n1-astg.mioto.vn/g/2023/08/19/18/BMEMGCxlBOgS_cMq-XfAnQ.jpg"
+                  src={imagePath}
                   alt=""
                 ></img>
                 <h3 className="userinfor__profile-account-name">
-                  Nguyen Van Nguyen <br></br> FPL DNK17
+                 {fullName}
                 </h3>
                 <p className="userinfor__profile-account-text">
                   Tham gia: 19/09/2023
@@ -175,7 +211,7 @@ function UserInfor() {
                               <FaMedal></FaMedal>
                           </i>
                           <h5 className="userinfor__profile-account-bonus-name">
-                              0 điểm
+                              {vip}
                           </h5>
                       </div>                    
                     </div>  
@@ -209,7 +245,7 @@ function UserInfor() {
                     Số điện thoại{" "}
                   </h3>
                   <h2 className="userinfor__profile-detail-list-number-text">
-                    Thêm số điện thoại
+                    {phoneNumber}
                     <i>
                       <FaPen></FaPen>
                     </i>
@@ -220,7 +256,7 @@ function UserInfor() {
                     Email{" "}
                   </h3>
                   <h2 className="userinfor__profile-detail-list-number-text">
-                    nguyennvpd06505@fpt.edu.vn
+                    {email}
                     <i>
                       <FaPen></FaPen>
                     </i>

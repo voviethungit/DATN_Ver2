@@ -210,7 +210,6 @@
     text-decoration: none;
     color: var(--text-color);
     height: 40px;
-    /* display: none; */
     line-height: 40px;
 }
 /* Đã đăng nhập tài khoản và đây là thanh menu hiển thị khi reponsive */
@@ -225,7 +224,7 @@
     display: flex;
     height: auto;
     text-decoration: none;
-    display: none;
+    display: block;
 }
 /* overlay lúc chưa đăng nhập */
 /* .nav__bars-icon-register {

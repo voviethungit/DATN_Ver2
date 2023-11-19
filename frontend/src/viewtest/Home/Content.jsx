@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import Slider from 'react-slick';
+import React, {useState, useEffect} from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './css/base.css';
@@ -8,10 +8,22 @@ import { BsShieldCheck} from "react-icons/bs";
 import { FaLocationDot, FaStar, FaCarRear} from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import imgGirl from './img/banner1.jpg';
+import axios from 'axios';
 // import { FaGoogle, FaFacebook} from "react-icons/fa6";
 
 function Content() {
   const [defaultImage, setDefaultImage] = useState({});
+  const [cars, setCars] = useState([]);
+  useEffect(() => {
+    axios.get('http://localhost:5000/get-car')
+      .then((response) => {
+        const carsData = response.data.cars; 
+        setCars(carsData); 
+      })
+      .catch((error) => {
+        console.error('Lỗi:', error);
+      });
+  }, []);
   const contact__mobile = {
       dots: true,
       infinite: false,
@@ -75,10 +87,7 @@ function Content() {
           price: '800k',
           linkProduct: '/product',
           linkImg:
-              'https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/mitsubishi_triton_4x2_2022/p/g/2023/02/14/11/UyQVePE5qjSecWyjaobZJQ.jpg',
-          linkImgOne: 'https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/mitsubishi_triton_4x2_2022/p/g/2023/02/14/11/UyQVePE5qjSecWyjaobZJQ.jpg',
-          linkImgTwo:'https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/mitsubishi_triton_4x2_2022/p/g/2023/02/14/11/5jiaz94EuJyONmbh3IJBoA.jpg',
-          linkImgThree: 'https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/mitsubishi_triton_4x2_2022/p/g/2023/02/14/11/5jiaz94EuJyONmbh3IJBoA.jpg'
+              'https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/mitsubishi_triton_4x2_2022/p/g/2023/02/14/11/UyQVePE5qjSecWyjaobZJQ.jpg'
       },
       {
           id: 2,
@@ -196,10 +205,10 @@ function Content() {
     <div className='content'>
       <h1 className='content__text'>Xe dành cho bạn</h1>
       <div className='content__list'>
-        {/* 1 chú bé đần */}
-        <Link to="/product" className='content__list-child'>
+      {cars.map((car, index) => (
+         <Link to={`/product/${car._id}`} className='content__list-child' key={index}>
           <nav>
-            <img src='https://n1-pstg.mioto.vn/cho_thue_xe_o_to_tu_lai_thue_xe_du_lich_hochiminh/mitsubishi_triton_4x2_2022/p/g/2023/02/14/11/UyQVePE5qjSecWyjaobZJQ.jpg' className='content__list-child-img'></img>
+            <img src={car.imagePath} className='content__list-child-img'></img>
             <div className='btn__freetax content__list-child-img-tax '>
               <p className='content__list-child-img-tax-text'>
                 Miễn thế chấp
@@ -218,12 +227,12 @@ function Content() {
             <div className='content__list-child-auto-location'></div>
           </div>
           <div className='content__list-child-name'>
-            <h1 className='content__list-child-name-main'>VINFAST LUX SA 2.0 2021</h1>
+            <h1 className='content__list-child-name-main'>{car.title}</h1>
             <i><BsShieldCheck></BsShieldCheck></i>
           </div>
           <div className='content__list-child-location'>
             <i><FaLocationDot></FaLocationDot></i>
-            <p className='content__list-child-location-text'>Quận 7, Hồ Chí Minh</p>
+            <p className='content__list-child-location-text'>{car.location}</p>
           </div>
           <div className='content__list-child-underlined'> </div>
           <div className='content__list-child-detail'>
@@ -239,17 +248,18 @@ function Content() {
             </div>
             <div className='content__list-child-detail-buy'>
                 <span className='content__list-child-detail-buy-sale'>
-                  800K
+                  {car.price}vnđ
                 </span>
                 <p className='content__list-child-detail-buy-day'>
-                  <span>Giá tổng</span> 1800k
+                  <span>Giá tổng</span> {car.price}vnđ
                 </p>
             </div>
           </div>
 
 
         </Link>
-       </div>
+        ))}
+        </div>
        <div className="content__mobile">
             <Slider {...contact__mobile}>
                 {dataDigitalBestSeller.map((item) => (

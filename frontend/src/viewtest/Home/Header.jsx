@@ -7,10 +7,16 @@ import axios from 'axios';
 import images from './img/erenyeager.jpg'; 
 
 
-function Header({image}) {
+function Header() {
+  // hàm sau khi đăng nhập thành công chuyển qua thẻ đã login
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // hàm set tên từ đăng ký
   const [fullName, setFullName] = useState('');
+  // hàm set ảnh từ đăng ký
   const [imagePath, setImagePath] = useState(null);
+  // cái này ẩn hiển khi click vào chuông 
   const [isBell, setIsBell] = useState(true);
+  // cái này ẩn hiển khi click vào mũi tên
   const [isArrow, setIsArrow] = useState(true);
 
   const togglebellDisplay = () => {
@@ -18,6 +24,10 @@ function Header({image}) {
   };
   const togglearrowDisplay = () => {
     setIsArrow(!isArrow);
+  };
+   const handleLogout = () => {
+    localStorage.removeItem('accessToken');
+    window.location.href="http://localhost:3000/"
   };
   const defaultImage = images // ảnh mặc định
   useEffect(() => {
@@ -30,13 +40,12 @@ function Header({image}) {
         },
       })
         .then((response) => {
-          
           setImagePath(response.data.user.imagePath);
           setFullName(response.data.user.fullName);
+          setIsLoggedIn(true); // Đánh dấu đã đăng nhập thành công
         })
         .catch((error) => {
           console.error('Lỗi :', error);
-          
         });
     }
   }, []);
@@ -84,7 +93,7 @@ function Header({image}) {
             </h3> 
           </Link>
           <div className='header__page-item-login-overlay-logout'>
-            <h3 className='header__page-item-login-overlay-logout-name'>
+            <h3 className='header__page-item-login-overlay-logout-name' onClick={handleLogout}>
             <i><FaDoorOpen></FaDoorOpen></i>
               Đăng xuất
             </h3>
@@ -98,6 +107,8 @@ function Header({image}) {
         </div>
         </div>
         {/* Thẻ user */}
+        {isLoggedIn ? (
+        // Lúc đã đăng nhập
         <div className='header__page-item-login'>
           <span onClick={togglebellDisplay} className='header__page-item-login-bell'
           >
@@ -110,7 +121,7 @@ function Header({image}) {
           </div>
           </span>
           <div className='header__page-item-login-avt'>
-          <img src={image ? image : defaultImage} alt=""></img>
+          <img src={imagePath || defaultImage} alt=""></img>
           </div>
           <h3 className='header__page-item-login-name'>{fullName}</h3>
           <span onClick={togglearrowDisplay} className='header__page-item-login-arrow'>
@@ -120,18 +131,24 @@ function Header({image}) {
             <i><FaUserLarge></FaUserLarge></i>
               Vào profile
               </Link>
-            <p className='header__page-item-login-arrow-list-name'>
+            <p className='header__page-item-login-arrow-list-name' onClick={handleLogout}>
             <i><FaDoorOpen></FaDoorOpen></i>
               Đăng xuất
               </p>
           </div>
           </span>
         </div>
-        {/* Thẻ đăng ký, đăng nhập */}
-        <div className='header__page-item-logout' >
-          <Link to="/register" className='header__page-item-logout-register'>Đăng ký</Link>
-          <Link to = "/login" className='header__page-item-logout-register  header__page-item-logout-register-button'>Đăng nhập</Link>
+        ) : (
+        /* Thẻ đăng ký, đăng nhập */
+        <div className='header__page-item-logout'>
+          <Link to="/register" className='header__page-item-logout-register'>
+            Đăng ký
+            </Link>
+          <Link to = "/login" className='header__page-item-logout-register  header__page-item-logout-register-button'>
+            Đăng nhập
+            </Link>
         </div>
+        )}
       </ul>
     </div>
   )
